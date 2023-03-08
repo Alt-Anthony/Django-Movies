@@ -6,6 +6,10 @@
 pip install gunicorn
 
 pip install django-environ
+
+pip install mysqlclient
+
+pip install whitenoise
 ```
 
 ## 2. Creamos nuestros requirements
@@ -35,3 +39,40 @@ MYSQLPASSWORD=''
 MYSQLHOST=''
 MYSQLPORT=''
 ```
+
+## 6. Configuracion de nuestro dominio
+
+Para que el proyecto funcione es necesario configurar el dominio
+en railway y en nuestro proyecto
+
+```py
+ALLOWED_HOSTS = ['domain.railway.app']
+
+CSRF_TRUSTED_ORIGINS = ['https://domain.railway.app']
+
+```
+
+## 7. Configurar archivos estaticos
+
+```py
+INSTALLED_APPS = [
+
+    ...,
+    'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
+    ...
+]
+
+MIDDLEWARE = [
+    ...,
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+```
+
+
