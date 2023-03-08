@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "django-movies-production.up.railway.app"]
 
-CSRF_TRUSTED_ORIGINS = ["localhost", "https://django-movies-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://django-movies-production.up.railway.app"]
 
 
 # Application definition
