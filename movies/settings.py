@@ -31,7 +31,9 @@ SECRET_KEY = 'django-insecure-bu3!r9o=1mz5on&70d=3j)_9hnmjk3(jf*r8zk%#)3a45xcxkx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "django-movies-production.up.railway.app"]
+
+CSRF_TRUSTED_ORIGINS = ["localhost", "https://django-movies-production.up.railway.app"]
 
 
 # Application definition
